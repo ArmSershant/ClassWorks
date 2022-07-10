@@ -29,16 +29,23 @@ function FlowerShop(flowers) {
         new Flower("tulip", "yellow"),
         new Flower("lily", "blue")
     ];
-    this.sellFlower = function(flower) {
-        index = this.findFlowerIndex(color,type);
+    this.sellFlower = function(Order) {
+        const index = this.findFlowerIndex(Order.color, Order.type);
+        const Invoice = new InVoice(this.flowers[index], 1500);
         return this.giveFlower(index);
-        return this.flowers.pop(flower);
     }
-    this.findFlowerIndex = function(color, type){
+    this.acceptOrder = function(Order) {
+        const index = this.findFlowerIndex(Order.color, Order.type);
+        this.flowers[index] = Order;
+    }
+    this.findFlowerIndex = function(colo){
         for (flower of this.flowers) {
         return this.flowers.findIndex(flower => flower.color === color && flower.type === type);
         };
     }
+    this.requestOrder = function(color, type) {
+        return new Order(color, type);
+    };
     this.giveFlower = function(index) {
         return this.flowers.splice(index, 1);
     };
@@ -49,11 +56,17 @@ function Order(color, type) {
     this.type = type;
 }
 
+function InVoice(flower, price){
+    this.flower = flower;
+    this.price = price;
+}
+
 const boy = new Person("Vardges", "male");
 const girl = new Person("Mariam", "female");
 
 const flowerShop = new FlowerShop();
 const flower = flowerShop.sellFlower("red", "rose");
+const invoice = shop.acceptOrder(Order);
 boy.buyFlower(flower);
 const gift = boy.giveFlower(flower);
 girl.takeFlower(flower)
