@@ -9,7 +9,9 @@ function Person(id, name){
         if (!this.hasFriend(friend)) {
         this.friends.push(friend);
         console.log( "Friend " + `${friend.name}`+ " added " + "to " + `${this.name}` + " friend list");
-        };
+        } else {
+            console.log("Friend " + `${friend.name}` + " already exists in " + `${this.name}` + " friend list");
+        }
     };
 }
 
@@ -17,4 +19,5 @@ const John = new Person(1, "John");
 const Mary = new Person(2, "Mary");
 const Mark = new Person(3, "Mark");
 Mark.addfriend(Mary);
-console.log(Mark.hasFriend(John));
+Mark.addfriend(John);
+Mark.addfriend(John);
