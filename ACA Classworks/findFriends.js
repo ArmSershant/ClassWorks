@@ -13,12 +13,15 @@ function Person(id, name){
             console.log("Friend " + `${friend.name}` + " already exists in " + `${this.name}` + " friend list");
         };
     };
-    this.searchFriends = function (friends) {
-        if  (friends.name === this.hasFriend.friend) {
-            console.log("No friends found");
-        } else {
-            console.log("Friends found: " + this.friends.map(elem => elem.name).join(", "));
+    this.searchFriends = function (friends, Person) {
+        for (friend of Person) {
+            if  (friends.name === this.hasFriend.friend) {
+                console.log("No friends found");
+            } else {
+                console.log("Friends found: " + this.friends.map(elem => elem.name).join(", "));
+            }
         }
+
     }
 }
 
