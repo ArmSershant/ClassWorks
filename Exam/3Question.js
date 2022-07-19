@@ -1,9 +1,14 @@
 // 3. Remove duplicates in an array.
 
-​​let dupes = [1,2,3,'a','a','f',3,4,2,'d','d'];
+let dupes = [1,2,3,'a','a','f',3,4,2,'d','d'];
 
 function removeDups(arr) {
-	//you code here
+    let result = [];
+    for (let i = 0; i < arr.length; i++) {
+        if (result.indexOf(arr[i]) === -1) {
+            result.push(arr[i]);
+        }
+    }
+    console.log(result);
 };
-
-//result => [1,2,3,’a’, ‘f’, 4, ‘d’];
+removeDups(dupes);
