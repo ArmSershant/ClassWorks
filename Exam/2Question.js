@@ -1,7 +1,7 @@
 // 2. Create a constructor function to produce calculator instances (+,-,*,? operations).
 
-function Calculator(value, num) {
-    //  this.value = 0;
+function Calculator() {
+     this.value = 2;
     this.add = function (num) {
         this.value += num;
     }
@@ -16,5 +16,7 @@ function Calculator(value, num) {
     }
 }
 let calc = new Calculator();
-console.log(calc.add(2));
-// console.log(calc.add(5, 2));
+calc.add(1);
+console.log(calc.value);
+calc.subtract(4);
+console.log(calc.value);
